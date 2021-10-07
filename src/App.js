@@ -1,22 +1,30 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import hearts from './heart-h-large.gif';
 import './App.css';
 
 function App() {
+  const [privacy, setPrivacy] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={hearts} className="App-logo" alt="logo" />
+        <h3>
+          Animated Heart Stickers
+        </h3>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Add animated heart stickers to show more meaningful reactions. 
+          View on the <a className="App-link" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">App Store</a>.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p className="privacy">
+          &copy; 2021 Justin Carter &bull;&nbsp;
+          <span
+            className="App-link"
+            onClick={() => setPrivacy(!privacy)}
+          >
+            Privacy Policy
+          </span>
+        </p>
+      <div className={`privacy ${privacy ? '' : 'hidden'}`}>We don't collect any data whatsoever.</div>
       </header>
     </div>
   );

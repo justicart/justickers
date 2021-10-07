@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={hearts} className="App-logo" alt="logo" />
         <h3>
-          Animated Heart Stickers
+          Animated Hearts Stickers
         </h3>
         <p>
           Add animated heart stickers to show more meaningful reactions. 

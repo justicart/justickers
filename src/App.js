@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import hearts from './heart-h-large.gif';
+import webBanner from './web-banner.gif';
 import './App.css';
 
 function App() {
@@ -7,16 +7,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={hearts} className="App-logo" alt="logo" />
+        <img src={webBanner} className="App-logo" alt="logo" />
         <h3>
-          Animated Hearts Stickers
+          Animated Hearts Stickers (and more)
         </h3>
         <p>
-          Add animated heart stickers to show more meaningful reactions. 
+          Add animated stickers to show more meaningful reactions. Includes hearts, stars, fire and flowers.
           View on the <a className="App-link" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">App Store</a>.
         </p>
         <p className="privacy">
-          &copy; 2021 Justin Carter &bull;&nbsp;
+          &copy; 2022 Justin Carter &bull;&nbsp;
           <span
             className="App-link"
             onClick={() => setPrivacy(!privacy)}

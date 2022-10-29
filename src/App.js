@@ -1,5 +1,9 @@
 import {useState} from 'react';
 import webBanner from './web-banner.gif';
+import hearts from './heart-sm-h.png';
+import stars from './star-sm-h.png';
+import fire from './fire-sm-h.png';
+import flowers from './flower-sm-h.png';
 import './App.css';
 
 function App() {
@@ -12,9 +16,16 @@ function App() {
           Animated Hearts Stickers (and more)
         </h3>
         <div className="content">
-          Add animated stickers to show more meaningful reactions. Includes hearts, stars, fire and flowers.
+          Add animated stickers to show more meaningful reactions. Includes{' '}
+          <span className="hotText">hearts<img src={hearts} className="hoverHearts" alt="animated hearts" /></span>,{' '}
+          <span className="hotText">stars<img src={stars} className="hoverHearts" alt="animated stars" /></span>,{' '}
+          <span className="hotText">fire<img src={fire} className="hoverHearts" alt="animated fire" /></span>, and{' '}
+          <span className="hotText">flowers<img src={flowers} className="hoverHearts" alt="animated flowers" /></span>.
         </div>
-        <a className="button" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">App Store</a>
+        <a className="button" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">
+          App Store
+          <img src={hearts} className="hoverHearts" alt="animated hearts" />
+        </a>
         <p className="privacy">
           &copy; 2022 Justin Carter &bull;&nbsp;
           <span

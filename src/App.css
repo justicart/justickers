@@ -11,7 +11,7 @@
 
 
 .App-header {
-  background-color: #eee;
+  /* background-color: #eee; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,17 +21,31 @@
   color: rgb(87, 87, 87);
 }
 
+.content {
+  max-width: 800px;
+}
+
 .App-link {
   color: #FF338E;
   text-decoration: none;
 }
 
 .privacy {
-  font-size: .7em;
+  font-size: 12px;
 }
 
 .hidden {
   opacity: 0;
 }
 
+a.button {
+  background: #ff70b2;
+  color: white;
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-top: 0.7em;
+}
 

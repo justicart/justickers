@@ -11,10 +11,10 @@ function App() {
         <h3>
           Animated Hearts Stickers (and more)
         </h3>
-        <p>
+        <div className="content">
           Add animated stickers to show more meaningful reactions. Includes hearts, stars, fire and flowers.
-          View on the <a className="App-link" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">App Store</a>.
-        </p>
+        </div>
+        <a className="button" href="https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730" target="_blank">App Store</a>
         <p className="privacy">
           &copy; 2022 Justin Carter &bull;&nbsp;
           <span

@@ -1,5 +1,16 @@
+body {
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+}
+
 .App {
   text-align: center;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -7,23 +18,46 @@
   max-width: 1000px;
   pointer-events: none;
 }
-
+.pieslicer {
+  max-width: 150px;
+}
 
 
 .App-header {
   /* background-color: #eee; */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
   align-items: center;
   justify-content: center;
+  flex: 1;
   font-size: calc(10px + 2vmin);
   color: rgb(87, 87, 87);
-  margin-top: -6vmin;
+}
+.App-header div {
+  flex: 1;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+.row-column {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+@media (max-width: 600px) {
+  .App-header div {
+    flex: auto;
+  }
+  .row-column {
+    flex-direction: column;
+    gap: 50px;
+  }
 }
 
 .content {
   max-width: 800px;
+  margin-bottom: 20px;
 }
 
 .App-link {

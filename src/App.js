@@ -37,8 +37,8 @@ function App() {
           <div className="content">
           Just in time for Thanksgiving! Cut any pie, cake, or pizza into equal pieces—no matter how many guests you're feeding—using an easy-to-follow AR guide on your camera.
           </div>
-          <a className="button" href="" target="_blank">
-            App Store (coming soon)
+          <a className="button" href="https://apps.apple.com/us/app/pieslicer/id6738563011" target="_blank">
+            App Store
           </a>
         </div>
       </header>

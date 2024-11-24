@@ -28,7 +28,7 @@ function App() {
             App Store
             <img src={hearts} className="hoverHearts" alt="animated hearts" />
           </a>
-          <div>
+          <div className="contact">
             Message us on <a href="https://www.facebook.com/justickers">Facebook</a>!
           </div>
         </div>
@@ -43,7 +43,7 @@ function App() {
           <a className="button" href="https://apps.apple.com/us/app/pieslicer/id6738563011" target="_blank">
             App Store
           </a>
-          <div>
+          <div className="contact">
             Message us on <a href="https://www.facebook.com/PieSlicer">Facebook</a>!
           </div>
         </div>

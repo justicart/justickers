@@ -9,7 +9,7 @@ beforeEach(() => {
 test('renders the app list on the home page', () => {
   render(<App />);
 
-  expect(screen.getByRole('heading', { name: 'Justickers' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Useful iPhone apps with a little personality.' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Animated Stickers' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Privacy Policy' })).toHaveAttribute('href', '/privacy');
 });

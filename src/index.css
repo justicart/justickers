@@ -1,11 +1,41 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(160deg, #fdf0f5 0%, #ede7f6 50%, #e8eaf6 100%);
-  background-attachment: fixed;
+  background:
+    radial-gradient(circle at top left, rgba(255, 94, 150, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(114, 88, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(18, 185, 129, 0.1), transparent 32%),
+    linear-gradient(180deg, #fcfbff 0%, #f7f3ff 52%, #f2f5fb 100%);
+  color: #1b1c24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  text-wrap: pretty;
 }

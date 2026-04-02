@@ -1,106 +1,332 @@
-body {
-  padding: 0;
-}
-
-#root {
-  height: 100vh;
-}
-
+/* ── Layout ── */
 .App {
-  text-align: center;
-  height: 100%;
-  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 24px;
   box-sizing: border-box;
 }
 
-.App-logo {
-  width: 50%;
-  max-width: 1000px;
-  pointer-events: none;
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
 }
-.pieslicer {
-  max-width: 150px;
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  margin: 8px 0 0;
+  font-weight: 400;
 }
 
-
-.App-header {
-  /* background-color: #eee; */
-  height: 100%;
-  align-items: center;
-  justify-content: center;
+/* ── App Grid ── */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
   flex: 1;
-  font-size: calc(10px + 2vmin);
-  color: rgb(87, 87, 87);
+  width: 100%;
 }
-.App-header div {
-  flex: 1;
+@media (max-width: 860px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    gap: 36px;
+  }
 }
 
-.flexColumn {
+/* ── App Card ── */
+.app-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 36px 28px 32px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
-.row-column {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-}
-@media (max-width: 600px) {
-  .App-header div {
-    flex: auto;
-  }
-  .row-column {
-    flex-direction: column;
-    gap: 50px;
-  }
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
-.content {
-  max-width: 800px;
+/* ── App Banner ── */
+.app-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  overflow: hidden;
+  opacity: 0.15;
+}
+.app-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── App Icon ── */
+.app-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 22px;
+  overflow: hidden;
   margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.app-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.icon-placeholder {
+  background: linear-gradient(135deg, #e0e0e0, #c8c8c8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-placeholder-text {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
 }
 
-.contact a, .App-link {
-  color: #FF338E;
+/* ── Typography ── */
+.app-title {
+  font-size: 1.35rem;
+  font-weight: 650;
+  color: #2d2d2d;
+  margin: 0 0 8px;
+}
+.app-description {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #555;
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+
+/* ── Features ── */
+.app-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  width: 100%;
+}
+.app-features li {
+  font-size: 0.82rem;
+  color: #666;
+  padding: 6px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.app-features li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ── Buttons & Badges ── */
+.app-card-buttons {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
   text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
 }
-.contact {
+.store-button:hover {
+  background: #333;
+}
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.coming-soon {
+  background: linear-gradient(135deg, #f0f0f0, #e4e4e4);
+  color: #888;
+}
+
+/* ── Demo Area ── */
+.demo-area {
+  width: 100%;
   margin-top: 20px;
-  font-size: 0.7em;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.video-placeholder {
+  width: 70%;
+  aspect-ratio: 9 / 16;
+  border-radius: 20px;
+  border: 2px dashed rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.video-play-icon {
+  width: 48px;
+  height: 48px;
+  color: rgba(0, 0, 0, 0.15);
+}
+.demo-video {
+  width: 70%;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
-.privacy {
-  font-size: 12px;
-}
-
-.hidden {
-  opacity: 0;
-}
-
+/* ── Sticker hover effects ── */
 .hotText {
   position: relative;
+  display: inline-block;
+  font-weight: 500;
+  color: #333;
 }
-a.button {
-  background: #ff70b2;
-  color: white;
-  border-radius: 6px;
-  padding: 4px 8px;
-  text-decoration: none;
-  font-size: 0.8em;
-  font-weight: bold;
-  margin-top: 0.7em;
-  position: relative;
-}
-img.hoverHearts {
+img.hoverImg {
   position: absolute;
-  width: calc(100% + 1.2em);
-  top: 0.1em;
-  left: -0.6em;
-  transition: 500ms opacity ease;
+  width: clamp(5.5rem, 10vw, 7.5rem);
+  min-width: 5.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%) scale(0.94);
+  transform-origin: center;
+  transition: opacity 220ms ease, transform 220ms ease;
   opacity: 0;
+  pointer-events: none;
+  z-index: 3;
 }
-a.button:hover img.hoverHearts,
-.hotText:hover img.hoverHearts {
+.hotText:hover img.hoverImg {
   opacity: 1;
+  transform: translate(-50%, -52%) scale(1);
 }
 
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 40px 20px 20px;
+  font-size: 0.8rem;
+  color: #999;
+}
+.footer p {
+  margin: 4px 0;
+}
+.footer-link {
+  color: #999;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #666;
+}
+.footer-contact {
+  margin-top: 8px;
+}
+.footer-contact a {
+  color: #999;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.footer-contact a:hover {
+  color: #666;
+}
+
+/* ── Privacy Page ── */
+.privacy-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+.privacy-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin: 0 0 4px;
+}
+.privacy-updated {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0 0 32px;
+}
+.privacy-page section {
+  margin-bottom: 28px;
+}
+.privacy-page h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin: 0 0 8px;
+}
+.privacy-page p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #555;
+  margin: 0;
+  text-wrap: pretty;
+}
+.privacy-page a {
+  color: #ff70b2;
+  text-decoration: none;
+}
+.privacy-page a:hover {
+  text-decoration: underline;
+}
+.back-button {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 24px;
+  display: block;
+  transition: color 0.2s;
+}
+.back-button:hover {
+  color: #333;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px 28px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}

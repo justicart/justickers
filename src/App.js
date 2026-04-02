@@ -82,6 +82,12 @@ const apps = [
       <><span className="hotText">Hearts<img src={hearts} className="hoverImg" alt="" /></span>, <span className="hotText">stars<img src={stars} className="hoverImg" alt="" /></span>, <span className="hotText">fire<img src={fire} className="hoverImg" alt="" /></span>, <span className="hotText">flowers<img src={flowers} className="hoverImg" alt="" /></span> & <span className="hotText">fireworks<img src={fireworks} className="hoverImg" alt="" /></span> with variations</>,
       'Works in any iMessage conversation',
     ],
+    links: [
+      {
+        label: 'Facebook',
+        url: 'https://www.facebook.com/justickers',
+      },
+    ],
     storeUrl: 'https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730',
     demo: <VideoPlaceholder label="Sticker demo coming soon" />,
   },
@@ -97,6 +103,12 @@ const apps = [
       'Augmented reality cutting guide',
       '2–12 slices with real-time preview',
       'Customizable colors & 3D vertical cut lines',
+    ],
+    links: [
+      {
+        label: 'Facebook',
+        url: 'https://www.facebook.com/PieSlicer',
+      },
     ],
     storeUrl: 'https://apps.apple.com/us/app/pieslicer/id6738563011',
     demoVideoSrc: pieSlicerDemo,
@@ -170,9 +182,6 @@ function SiteFooter({ onNavigatePrivacy }) {
           Privacy Policy
         </a>
       </p>
-      <p className="footer-contact">
-        Find us on <a href="https://www.facebook.com/justickers">Facebook</a>
-      </p>
     </footer>
   );
 }
@@ -224,6 +233,21 @@ function AppCard({ app, onOpenVideo }) {
               <ul className="app-features">
                 {app.features.map((feature, index) => <li key={index}>{feature}</li>)}
               </ul>
+            )}
+            {app.links?.length > 0 && (
+              <div className="app-links">
+                {app.links.map((link) => (
+                  <a
+                    key={link.url}
+                    className="app-link"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             )}
           </div>
         </div>

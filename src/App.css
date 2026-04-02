@@ -319,6 +319,31 @@
   background: var(--theme-accent);
 }
 
+.app-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.app-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(22, 22, 26, 0.1);
+  color: var(--ink-strong);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-link:hover {
+  color: var(--ink-strong);
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .app-card-buttons {
   position: relative;
   z-index: 1;
@@ -581,15 +606,13 @@ img.hoverImg {
   margin: 4px 0;
 }
 
-.footer-link,
-.footer-contact a {
+.footer-link {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.footer-link:hover,
-.footer-contact a:hover {
+.footer-link:hover {
   color: var(--ink-strong);
 }
 

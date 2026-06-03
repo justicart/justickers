@@ -40,10 +40,11 @@
 
 .site-mark {
   color: var(--ink-strong);
+  font-family: var(--font-display);
   text-decoration: none;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -65,7 +66,7 @@
   color: #7d4ef6;
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -73,9 +74,10 @@
   max-width: 16ch;
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.8rem);
   line-height: 0.95;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .hero-subtitle {
@@ -96,7 +98,8 @@
 .group-heading h2 {
   margin: 0;
   color: var(--ink-strong);
-  letter-spacing: -0.03em;
+  font-family: var(--font-display);
+  letter-spacing: 0;
 }
 
 .group-heading p {
@@ -116,13 +119,11 @@
   align-items: end;
   justify-content: space-between;
   gap: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
 }
 
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -137,10 +138,9 @@
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 28px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
     linear-gradient(130deg, var(--theme-tint), transparent 40%);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
 }
 
 .app-card-top {
@@ -154,11 +154,14 @@
 
 .app-card-accent {
   position: absolute;
-  inset: 0 auto auto 0;
+  top: -10px;
+  left: -10px;
   width: 100%;
-  height: 7px;
+  height: 100%;
   background: linear-gradient(90deg, var(--theme-accent), transparent 80%);
   opacity: 0.95;
+  z-index: -1;
+  border-radius: 38px;
 }
 
 .app-banner {
@@ -194,8 +197,8 @@
 }
 
 .app-icon-pieslicer {
-  width: 82%;
-  height: 82%;
+  width: 70%;
+  height: 70%;
   margin: auto;
   object-fit: contain;
 }
@@ -206,9 +209,10 @@
 
 .icon-placeholder-text {
   color: var(--theme-accent);
+  font-family: var(--font-display);
   font-size: 2.6rem;
   font-weight: 700;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .app-meta {
@@ -233,7 +237,7 @@
   border-radius: 999px;
   font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -265,9 +269,10 @@
   z-index: 1;
   margin: 14px 0 8px;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: 1.5rem;
   line-height: 1.02;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .app-card-body {
@@ -404,7 +409,8 @@
 }
 
 .video-placeholder,
-.demo-video {
+.demo-video,
+.screenshot-slideshow {
   width: 100%;
   border-radius: 20px;
 }
@@ -428,7 +434,7 @@
   max-width: 9ch;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   line-height: 1.5;
   text-align: center;
   text-transform: uppercase;
@@ -437,6 +443,34 @@
 .demo-video {
   display: block;
   box-shadow: 0 16px 30px rgba(27, 32, 56, 0.14);
+}
+
+.screenshot-slideshow {
+  position: relative;
+  aspect-ratio: 1284 / 2778;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 30px rgba(27, 32, 56, 0.14);
+}
+
+.screenshot-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.screenshot-slide.is-active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-slide {
+    transition: none;
+  }
 }
 
 .video-modal {
@@ -533,6 +567,12 @@ img.hoverImg {
   --theme-glow: rgba(18, 185, 129, 0.18);
 }
 
+.theme-placeholder {
+  --theme-accent: #3f3f46;
+  --theme-tint: rgba(63, 63, 70, 0.11);
+  --theme-glow: rgba(39, 39, 42, 0.16);
+}
+
 .privacy-page-wrap {
   padding-top: 10px;
 }
@@ -549,9 +589,10 @@ img.hoverImg {
 .privacy-page h1 {
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(2.3rem, 5vw, 4rem);
   line-height: 0.98;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .privacy-updated {
@@ -569,6 +610,7 @@ img.hoverImg {
 .privacy-page h2 {
   margin: 0 0 8px;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: 1.1rem;
 }
 

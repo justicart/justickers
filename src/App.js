@@ -9,7 +9,21 @@ import fireworks from './fireworks-sm-h.png';
 import pieSlicer from './pie-slicer.png';
 import sudokuIcon from './sudoku-icon.png';
 import pieSlicerDemo from './pieslicer-demo.mp4';
+import stickersDemo from './stickers-demo.mp4';
+import sudokuDemo1 from './sudoku-demo/IMG_0412.PNG';
+import sudokuDemo2 from './sudoku-demo/IMG_0413.PNG';
+import sudokuDemo3 from './sudoku-demo/IMG_0414.PNG';
+import sudokuDemo4 from './sudoku-demo/IMG_0415.PNG';
+import sudokuDemo5 from './sudoku-demo/IMG_0416.PNG';
 import './App.css';
+
+const sudokuDemoImages = [
+  sudokuDemo1,
+  sudokuDemo2,
+  sudokuDemo3,
+  sudokuDemo4,
+  sudokuDemo5,
+];
 
 function VideoPlaceholder({ label = 'Demo coming soon' }) {
   return (
@@ -22,8 +36,40 @@ function VideoPlaceholder({ label = 'Demo coming soon' }) {
   );
 }
 
+function ScreenshotSlideshow({ images, label }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrentIndex((index) => (index + 1) % images.length);
+    }, 3000);
+
+    return () => window.clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div
+      className="screenshot-slideshow"
+      aria-label={label}
+    >
+      {images.map((image, index) => (
+        <img
+          key={image}
+          src={image}
+          className={`screenshot-slide ${index === currentIndex ? 'is-active' : ''}`}
+          alt=""
+        />
+      ))}
+    </div>
+  );
+}
+
 function getCurrentPage() {
-  return window.location.pathname === '/privacy' ? 'privacy' : 'home';
+  if (window.location.pathname === '/privacy') {
+    return 'privacy';
+  }
+
+  return 'home';
 }
 
 function navigateTo(path, setPage) {
@@ -89,7 +135,8 @@ const apps = [
       },
     ],
     storeUrl: 'https://apps.apple.com/us/app/animated-hearts-stickers/id1589174730',
-    demo: <VideoPlaceholder label="Sticker demo coming soon" />,
+    demoVideoSrc: stickersDemo,
+    demo: <video className="demo-video" src={stickersDemo} autoPlay loop muted playsInline />,
   },
   {
     slug: 'pieslicer',
@@ -116,18 +163,18 @@ const apps = [
   },
   {
     slug: 'sudoku',
-    title: 'Sudoku',
+    title: 'Pencilmark Sudoku',
     theme: 'theme-sudoku',
     image: sudokuIcon,
-    status: 'Coming soon',
+    status: 'Available now',
     description: 'A sudoku app for people who want to actually get better, with clear guidance on real solving techniques instead of a cold right-or-wrong buzzer.',
     features: [
       'Practice techniques like X-Wing & XY-Wing',
       'Step-by-step hints that explain the logic',
       'Corner marks, center marks, and color annotations',
     ],
-    comingSoon: true,
-    demo: <VideoPlaceholder label="Sudoku demo coming soon" />,
+    storeUrl: 'https://apps.apple.com/us/app/pencilmark-sudoku/id6763785157',
+    demo: <ScreenshotSlideshow images={sudokuDemoImages} label="Sudoku app screenshots" />,
   },
   {
     slug: 'snapscore',
@@ -143,6 +190,21 @@ const apps = [
     ],
     comingSoon: true,
     demo: <VideoPlaceholder label="SnapScore demo coming soon" />,
+  },
+  {
+    slug: 'next-app',
+    title: 'Next App',
+    theme: 'theme-placeholder',
+    image: null,
+    status: 'In progress',
+    description: 'Another small iPhone app is taking shape. More details once it is closer to release.',
+    features: [
+      'Built for a focused everyday workflow',
+      'Designed to feel fast, clear, and polished',
+      'No account or tracking planned',
+    ],
+    comingSoon: true,
+    demo: <VideoPlaceholder label="Preview coming soon" />,
   },
 ];
 
@@ -205,7 +267,7 @@ function AppCard({ app, onOpenVideo }) {
         </div>
         <div className="app-card-buttons">
           {app.comingSoon ? (
-            <span className="badge coming-soon">Coming soon</span>
+            <span className="badge coming-soon">{app.status}</span>
           ) : (
             <a className="store-button" href={app.storeUrl} target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -285,7 +347,7 @@ function PrivacyPage({ onBack, onNavigatePrivacy }) {
             <h2>Overview</h2>
             <p>
               Justickers ("we", "us", "our") develops and publishes mobile applications
-              including PieSlicer, Sudoku, SnapScore, and Animated Hearts Stickers. We are committed
+              including PieSlicer, Pencilmark Sudoku, SnapScore, and Animated Hearts Stickers. We are committed
               to protecting your privacy. This policy explains how our apps handle your information.
             </p>
           </section>

@@ -1,19 +1,24 @@
+:root {
+  --font-body: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:
-    radial-gradient(circle at top left, rgba(255, 94, 150, 0.16), transparent 24%),
-    radial-gradient(circle at top right, rgba(114, 88, 255, 0.18), transparent 28%),
-    radial-gradient(circle at 50% 100%, rgba(18, 185, 129, 0.1), transparent 32%),
-    linear-gradient(180deg, #fcfbff 0%, #f7f3ff 52%, #f2f5fb 100%);
+    radial-gradient(circle at top right, rgba(114, 88, 255, 0.07), transparent 28%),
+    linear-gradient(180deg, #fcfbff 0%, #f7f8fb 55%, #eef2f7 100%);
   color: #1b1c24;
 }
 
 * {
   box-sizing: border-box;
+  text-wrap: pretty;
+  text-wrap-style: pretty;
 }
 
 html {
@@ -34,8 +39,7 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p,
-li {
-  text-wrap: pretty;
+h6 {
+  text-wrap: balance;
+  text-wrap-style: balance;
 }
